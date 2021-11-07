@@ -1,0 +1,62 @@
+"""premier programme
+formation Python apprendre
+la programmation"""
+
+
+def demander_age(nom_personne):
+    age_int = 0
+    while age_int == 0:
+        age_str = input(nom_personne + " Quel est votre age ?")
+        try:
+            age_int = int(age_str)
+        except:
+            print("ERREUR: Vous devez rentrer un nombre pour l'age")
+    return age_int
+
+
+def demander_nom():
+    reponse_nom = ""
+    while reponse_nom == "":
+        nom_str = input("quel est votre nom?")
+        try:
+            reponse_nom = str(nom_str)
+        except:
+            print("ERREUR: Vous devez rentrer votre nom")
+    return reponse_nom
+    
+
+def afficher_information_personne(age, nom, taille=0):
+   print()
+   print("vous vous appelez " + str(nom) + ",vous avez "+ str(age) + " ans")
+#print(f"vous vous appelez {nom}, vous avez {age} ans")
+  # print("vous vous appelez %s, vous avez %s" % (nom, age))
+   print("l'an prochain vous aurez " + str(age + 1) + " ans")
+
+   if  age == 17:
+        print("presque majeur")
+   elif age == 1 or age == 2:
+       print("vous etes un bebe")
+   elif 12 > age <= 18:
+       print("vous etes adolescent")
+   elif age == 18:
+        print("tout juste majeur")
+   elif age > 60:
+       print("vous etes senior")
+   elif age < 10:
+       print("vous etes enfant")
+   elif age > 18:
+        print("vous etes majeur")
+   else:
+        print("vous etes mineur")
+
+   if not taille == 0:
+        print("votre taille: " + str(taille) + "m")
+        
+
+NB_PERSONNE = 3
+for i in range(0, NB_PERSONNE):
+    nom = demander_nom() + str(i+1)
+    age = demander_age(nom)
+    afficher_information_personne(age, nom)
+    
+    
